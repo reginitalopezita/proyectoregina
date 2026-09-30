@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Captura de Datos</title>
+</head>
+<body>
+
+  <h2>Captura de Datos</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbxDa8d4x3T7DSAAkM2OGPR6prilNjZaTstFBXkurbWwkADB7LxH-PxJB5OXzVC9YEnm/exec" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" required min="1" max="120"><br><br>
+
+     <label for="NumTel">NumTel:</label><br>
+    <input type="number" id="NumTel" name="NumTel" required min="1" max="1200000000"><br><br>
+
+    <label for="Direccion">Direccion:</label><br>
+    <input type="text" id="Direccion" name="Direccion" required><br><br>
+
+    <label for="Puesto">Puesto:</label><br>
+    <input type="text" id="Puesto" name="Puesto" required><br><br>
+
+    <label for="Salario">Salario:</label><br>
+    <input type="number" id="Salario" name="Salario" required min="1" max="12000"><br><br>
+
+    <label for="Email">Email:</label><br>
+    <input type="text" id="Email" name="Email" required><br><br>
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
